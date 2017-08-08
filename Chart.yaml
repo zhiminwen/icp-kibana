@@ -1,0 +1,4 @@
+apiVersion: v1
+description: A Helm chart for IBM Cloud Private V1.2
+name: icp-kibana
+version: 0.1.0

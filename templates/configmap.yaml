@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "fullname" . }}
+  namespace: kube-system
+  labels:
+    app: {{ template "fullname" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+data:
+  kibana.yml: |
+    #all the rest are kept as default, please refer to kibana 4.6 doc to add
+    #https://www.elastic.co/guide/en/kibana/4.6/kibana-server-properties.html
+    #note each version the keys are different
+    elasticsearch.url: "{{ .Values.elasticsearch.url }}"
+    elasticsearch.ssl.cert: "{{ .Values.elasticsearch.certPathToMount }}/client.pem"
+    elasticsearch.ssl.key: "{{ .Values.elasticsearch.certPathToMount }}/client-key.pem"
+    elasticsearch.ssl.ca: "{{ .Values.elasticsearch.certPathToMount }}/ca.pem"
+    elasticsearch.ssl.verify: false
+    
