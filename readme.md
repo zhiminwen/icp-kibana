@@ -12,9 +12,9 @@ elasticsearch:
 - helm install icp-kibana
 
 ## How it works
-ICP built in with elastic search engine collecting logs and heapster metrics. The elastic search URL is exposed through to the master node at port 8743 with SSL client cert. verification turned on.
+ICP built in with elastic search engine collecting logs and heapster metrics. The elastic search URL is exposed to the master node at port 8743 with SSL client cert. verification turned on.
 
-The helm chart use a configMap volume to custom the settings for kibana.yml. It refers a secret volume that utilizing the built-in secret for elastic search.
+The helm chart use a configMap volume to custom the settings for kibana.yml. It refers a secret volume that utilizes the built-in secret for elastic search.
 
 Note the elastic search in ICP V1.2 is V2.4. The supported latest Kibana version is V4.6
 
